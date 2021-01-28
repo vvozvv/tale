@@ -183,7 +183,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         // Laravel view logger
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
-        \Spatie\Newsletter\NewsletterFacade::class,
+        \Spatie\Newsletter\NewsletterFacade::class
 
     ],
 
