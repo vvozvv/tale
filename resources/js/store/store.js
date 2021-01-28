@@ -16,7 +16,6 @@ const store = new Vuex.Store({
         loading: false,
         result_search: [],
         subscribe_tags: [],
-        HOST: window.location.origin
     },
     mutations: {
         SET_ARTICLES_FROM_FILTER(state, payload) {
@@ -54,7 +53,7 @@ const store = new Vuex.Store({
     actions: {
         GET_ARTICLES_FROM_FILTER({commit}, query) {
             // console.log(query)
-            return axios(`${this.HOST}/api/filter`, {
+            return axios(`/api/filter`, {
                 method: 'post',
                 data: {
                     ...query
@@ -67,7 +66,7 @@ const store = new Vuex.Store({
                 .catch(err => 'Ошибка получение постов')
         },
         GET_USER_ARTICLES({commit}, id) {
-            return axios(`${this.HOST}/api/articles/user/${id}`, {
+            return axios(`/api/articles/user/${id}`, {
                 method: 'GET'
             })
             .then(response => {
@@ -89,7 +88,7 @@ const store = new Vuex.Store({
             })
         },
         GET_USER_FRONT_ARTICLE({commit}, id) {
-            return axios(`${this.HOST}/api/articles/user/${id}`, {
+            return axios(`/api/articles/user/${id}`, {
                 method: 'GET'
             })
             .then(response => {
@@ -98,7 +97,7 @@ const store = new Vuex.Store({
             .catch(err => 'Ошибка получение постов')
         },
         GET_CURRENT_USER({commit}) {
-            return axios(`${this.HOST}/api/user/${id}`, {
+            return axios(`/api/user/${id}`, {
                 method: 'GET'
             })
             .then(response => {
@@ -107,7 +106,7 @@ const store = new Vuex.Store({
             .catch(err => 'Пользователь не найден')
         },
         GET_TAG_ARTICLES({commit}, tag_id) {
-            return axios(`${this.HOST}/api/tags/${tag_id}`, {
+            return axios(`/api/tags/${tag_id}`, {
                 method: 'GET'
             })
             .then(response => {
@@ -116,7 +115,7 @@ const store = new Vuex.Store({
             .catch(err => 'Статьи у тега отсутствуют или их не удалось получить.')
         },
         GET_SEARCH_RESULT({commit}, query) {
-            return axios.post(`${this.HOST}/api/search`, {query})
+            return axios.post(`/api/search`, {query})
             .then(response => {
                 commit('SET_SEARCH_RESULT', response.data)
                 console.log(response.data)
@@ -124,14 +123,14 @@ const store = new Vuex.Store({
             .catch(err => 'Статьи у тега отсутствуют или их не удалось получить.')
         },
         GET_TOP_ARTICLES({commit}) {
-            return axios.get(`${this.HOST}/api/top-articles`)
+            return axios.get(`/api/top-articles`)
                 .then(response => {
                     commit('SET_TOP_ARTICLES', response.data)
                 })
                 .catch(err => 'Статьи у тега отсутствуют или их не удалось получить.')
         },
         GET_SUBSCRIBE_USER_TAGS({commit}) {
-            return axios.get(`${this.HOST}/api/subscribe-tags/${Vue.prototype.$userId}`)
+            return axios.get(`/api/subscribe-tags/${Vue.prototype.$userId}`)
                 .then(response => {
                     commit('SET_USER_SUBSCRIBE_TAG', response.data)
                 })
