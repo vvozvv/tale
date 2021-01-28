@@ -75,7 +75,7 @@ const store = new Vuex.Store({
             .catch(err => 'Ошибка получение постов')
         },
         GET_TAGS({commit}) {
-            return axios(`${this.HOST}/api/tags`, {
+            return axios(`/api/tags`, {
                 method: 'GET'
             })
             .then(response => {
