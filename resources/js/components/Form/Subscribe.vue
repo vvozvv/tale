@@ -29,7 +29,7 @@ export default {
         sendForm() {
             let data = new FormData()
 
-            return axios.post('http://127.0.0.1:8000/api/mailer', {'mail': this.email})
+            return axios.post('/api/mailer', {'mail': this.email})
                 .then(res => {
                     this.$toast.success('Спасибо за подписку!', {
                         timeout: 5000

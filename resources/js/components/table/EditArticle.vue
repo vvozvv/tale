@@ -320,7 +320,7 @@ export default {
             formData.append('user_id', Vue.prototype.$userId)
 
 
-            axios.post('http://127.0.0.1:8000/api/articles',
+            axios.post('/api/articles',
                 formData,
                 {
                     headers: {'Content-type': 'multipart/form-data'}
