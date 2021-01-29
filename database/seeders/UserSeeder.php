@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $developer = Role::where('slug','developer')->first();
-        $author = Role::where('slug', 'author')->first();
-        $createTasks = Permission::where('slug','create-tasks')->first();
-        $manageUsers = Permission::where('slug','manage-users')->first();
+        $developer = Role::where('name','developer')->first();
+        $author = Role::where('name', 'author')->first();
+        $createTasks = Permission::where('name','create-tasks')->first();
+        $manageUsers = Permission::where('name','manage-users')->first();
         $user1 = new User();
         $user1->name = 'Jhon Deo';
         $user1->email = 'jhon@deo.com';
